@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Your custom styles below */
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;

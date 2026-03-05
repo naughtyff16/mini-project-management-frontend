@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser, registerUser } from "../api/authApi";
+import toast from "react-hot-toast";
 
 const AuthContext = createContext();
 
@@ -21,6 +22,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await registerUser(data);
       localStorage.setItem("token", res.data.data.token);
+      localStorage.setItem("name", res.data.data.name);
       setUser(res.data.data);
       navigate("/dashboard");
       toast.success("Registered Successfully");
